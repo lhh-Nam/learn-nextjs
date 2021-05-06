@@ -5,14 +5,12 @@ function Navbar() {
   return (
     <nav className="header">
       <div className="logo">
-     
-          <Image
-            src="/logo1.png"
-            alt="Picture of the author"
-            width={128}
-            height={77}
-          />
-        
+        <Image
+          src="/logo1.png"
+          alt="Picture of the author"
+          width={128}
+          height={77}
+        />
       </div>
 
       <ul className="navbar">
@@ -26,6 +24,10 @@ function Navbar() {
 
         <Link href="/blog">
           <li>Blog</li>
+        </Link>
+
+        <Link href="/images">
+          <li>Images</li>
         </Link>
       </ul>
     </nav>

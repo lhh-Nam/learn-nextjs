@@ -19,7 +19,6 @@ about.getInitialProps = async (ctx) => {
   const res = await fetch(API);
 
   const json = await res.json();
-  console.log(json);
   return { stars: json.stargazers_count };
 };
 
