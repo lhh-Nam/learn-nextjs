@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { images } from "../next.config";
 import { loadImages } from "../redux/actions/ImageAction";
 import Button from "../components/Button";
+import Stats from "../components/Stats";
 
 // export const getStaticProps = async () => {
 //   const key =
@@ -21,11 +22,12 @@ import Button from "../components/Button";
 //   };
 // };
 
-const mapStateToProps = ({ isLoading, images, error }) => {
+const mapStateToProps = ({ isLoading, images, error, imageStats }) => {
   return {
     isLoading,
     images,
     error,
+    imageStats,
   };
 };
 
@@ -33,7 +35,14 @@ const mapDispatchToProps = (dispatch) => ({
   loadImages: () => dispatch(loadImages()),
 });
 
-const Images = ({ imageList, loadImages, images, error, isLoading }) => {
+const Images = ({
+  imageList,
+  loadImages,
+  images,
+  error,
+  isLoading,
+  imageStats,
+}) => {
   useEffect(() => {
     loadImages();
   }, []);
@@ -59,6 +68,8 @@ const Images = ({ imageList, loadImages, images, error, isLoading }) => {
               width={img.width}
               height={img.height}
             /> */}
+
+            <Stats stats={imageStats[img.id]} />
 
             <img src={img.urls.small} alt={img.user.username} />
           </div>

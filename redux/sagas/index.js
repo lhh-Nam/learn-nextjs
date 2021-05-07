@@ -1,15 +1,11 @@
-import { call, put, take, takeEvery, takeLatest } from "redux-saga/effects";
+import { all } from "redux-saga/effects";
 import { IMAGES } from "../NameAction";
 import imagesSaga from "./imagesSaga";
+import statsSaga from "./statsSaga";
 
-// function* handleImagesLoad() {
-//   console.log("fetching images");
-// }
-
-// function* rootSaga() {
-//   yield takeEvery(IMAGES.LOAD, handleImagesLoad);
-// }
-
+function* rootSaga() {
+  yield all([imagesSaga(), statsSaga()]);
+}
 // watcher saga -> actions -> worker saga
 
-export default imagesSaga;
+export default rootSaga;

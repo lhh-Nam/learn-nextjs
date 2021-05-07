@@ -9,7 +9,8 @@ export const loadImages = () => {
 export const setImages = (images) => {
   return {
     type: IMAGES.LOAD_SUCCESS,
-    payload: { images },
+    //payload: { images },
+    images,
   };
 };
 
